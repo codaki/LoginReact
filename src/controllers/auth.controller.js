@@ -1,7 +1,7 @@
 import { db } from "../db.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import {TOKEN_SECRET} from "../config.js"
+import { TOKEN_SECRET } from "../config.js";
 
 export const register = (req, res) => {
   const { email, password, username } = req.body;
@@ -10,7 +10,7 @@ export const register = (req, res) => {
 
   db.query(q, [email, username], (err, data) => {
     if (err) return res.status(500).json(err);
-    if (data.length) return res.status(409).json("Usuario ya existe!");
+    if (data.length) return res.status(409).json(["Usuario ya existe!"]);
     //Encriptado de contraseña
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
@@ -55,26 +55,30 @@ export const login = (req, res) => {
   });
 };
 
-export const logout = (req,res) => {
-  res.clearCookie("access_token",{
-    sameSite:"none",
-    secure:true,
-    expires: new Date(0)
-  }).status(200).json("User has been logged out.")
-}
+export const logout = (req, res) => {
+  //Limpieza de las cookies
+  res
+    .clearCookie("access_token", {
+      sameSite: "none",
+      secure: true,
+      expires: new Date(0),
+    })
+    .status(200)
+    .json("User has been logged out.");
+};
 
-export const profile = (req,res) => {
-
+export const profile = (req, res) => {
+  //Acceder al la página de perfil con Id
   const id = req.user.id;
   const q = "SELECT * FROM usu_usuario WHERE usu_codigo = ?";
+  //Llamado a la base de datos
   db.query(q, id, (err, data) => {
     if (err) return res.status(500).json(err);
     return res.json({
+      //información que se recopila
       id: data[0].usu_codigo,
-      username:data[0].usu_username,
+      username: data[0].usu_username,
       email: data[0].usu_email,
-      
     });
   });
-
-}
+};
