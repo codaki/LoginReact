@@ -9,19 +9,21 @@ export function Navbar() {
   return (
     <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
       <h1 className="text-2xl font-bold">
-        <Link to={isAuthenticated ? "/tasks" : "/"}>Task Manager</Link>
+        <Link to={isAuthenticated ? "/profile" : "/"}>Task Manager</Link>
       </h1>
       <ul className="flex gap-x-2">
         {isAuthenticated ? (
           <>
+           {user && user.username ? (
+              <li>{user.username}</li>
+            ) : (
+              <li>Loading...</li>
+            )}
             <li>
-              Welcome {user.username}
+              <Link className="bg-indigo-500 px-3 py-2 rounded-md" to="/profile">Perfil</Link>
             </li>
             <li>
-              <Link to="/profile">Perfil</Link>
-            </li>
-            <li>
-              <Link to="/" onClick={() => logout()}>
+              <Link className="bg-indigo-500 px-3 py-2 rounded-md" to="/" onClick={() => logout()}>
                 Logout
               </Link>
             </li>
@@ -29,10 +31,10 @@ export function Navbar() {
         ) : (
           <>
             <li>
-              <Link to="/login">Login</Link>
+              <Link className="bg-indigo-500 px-3 py-2 rounded-md" to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/register">Register</Link>
+              <Link className="bg-indigo-500 px-3 py-2 rounded-md" to="/register">Register</Link>
             </li>
           </>
         )}
