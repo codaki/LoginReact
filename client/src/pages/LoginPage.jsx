@@ -36,7 +36,7 @@ function LoginPage() {
             type="text"
             {...register("username", { required: true })}
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md border m-3 "
-            placeholder="Usuario"
+            placeholder="Usuario..."
           />
           {errors.username && (
             <p className="text-red-500">El usuario es requerido</p>
@@ -46,7 +46,7 @@ function LoginPage() {
             type="password"
             {...register("password", { required: true })}
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md border m-3"
-            placeholder="Contraseña"
+            placeholder="Contraseña..."
           />
           {errors.password && (
             <p className="text-red-500">La contraseña es requerida</p>
