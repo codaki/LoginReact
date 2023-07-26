@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
       }
       try {
         const res = await  verifyTokenRequest(cookies.token);
-        console.log(res);
+        //console.log(res);
         if (!res.data) return setIsAuthenticated(false);
         setIsAuthenticated(true);
         setUser(res.data);
@@ -68,7 +68,11 @@ export const AuthProvider = ({ children }) => {
     };
     checkLogin();
   }, []);
-
+  const logout = () => {
+    Cookies.remove("token");
+    setUser(null);
+    setIsAuthenticated(false);
+  };
 
   
 
@@ -81,6 +85,7 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         errors,
         signin,
+        logout,
         loading,
       }}
     >
