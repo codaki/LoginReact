@@ -31,7 +31,7 @@ export const login = (req, res) => {
   db.query(q, [req.body.username], (err, data) => {
     if (err) return res.status(500).json(err);
     if (data.length === 0)
-      return res.status(404).json("Usuario no encontrado!");
+      return res.status(404).json(["Usuario no registrado!"]);
     //Comparación de contraseña
     const isPasswordCorrect = bcrypt.compareSync(
       req.body.password,
@@ -40,16 +40,14 @@ export const login = (req, res) => {
     );
     //Comprobación de contraseña
     if (!isPasswordCorrect)
-      return res.status(400).json("Usuario o Contraseña incorrecta!");
+      return res.status(400).json(["Usuario o Contraseña incorrecta!"]);
     //Generación de Token
     const token = jwt.sign({ id: data[0].usu_codigo }, TOKEN_SECRET);
     //Copia toda la información menos el primer atributo establecido
     const { usu_password, ...other } = data[0];
     //Token guardado en una cookie
     res
-      .cookie("access_token", token, {
-        httpOnly: true,
-      })
+      .cookie("token", token)
       .status(200)
       .json(other);
   });
@@ -58,7 +56,7 @@ export const login = (req, res) => {
 export const logout = (req, res) => {
   //Limpieza de las cookies
   res
-    .clearCookie("access_token", {
+    .clearCookie("token", {
       sameSite: "none",
       secure: true,
       expires: new Date(0),
@@ -66,6 +64,24 @@ export const logout = (req, res) => {
     .status(200)
     .json("User has been logged out.");
 };
+
+export const verifyToken = async(req,res)=>{
+  const{token} = req.cookies;
+  if (!token) return res.send(false);
+  jwt.verify(token,TOKEN_SECRET,(err,user)=>{
+    if(err) return res.status(401).json("Acceso denegado")
+    const q = "SELECT * FROM usu_usuario WHERE usu_codigo = ?";
+    db.query(q, user.id, (err, data) => {
+      if (err) return res.status(500).json(err);
+      return res.json({
+        //información que se recopila
+        id: data[0].usu_codigo,
+        username: data[0].usu_username,
+        email: data[0].usu_email,
+      });
+    });
+  })
+}
 
 export const profile = (req, res) => {
   //Acceder al la página de perfil con Id

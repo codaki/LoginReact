@@ -17,7 +17,7 @@ function RegisterPage() {
   });
 
   useEffect(()=>{
-    if(isAutheticated) navigate("/");
+    if(isAutheticated) {navigate("/");}
   },[isAutheticated]);
 
 

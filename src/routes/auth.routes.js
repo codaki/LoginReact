@@ -4,6 +4,7 @@ import {
   register,
   logout,
   profile,
+  verifyToken,
 } from "../controllers/auth.controller.js";
 //Uso de la fución que valida el acceso a ciertas páginas
 import { authRequired } from "../middlewares/validateToken.js";
@@ -16,4 +17,6 @@ router.post("/login",validateSchema(loginSchema), login);
 router.post("/logout", logout);
 //Ruta protegida con el authRequired
 router.get("/profile", authRequired, profile);
+//Verificacion de token
+router.get("/verify",verifyToken)
 export default router;
