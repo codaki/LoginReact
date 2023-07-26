@@ -19,6 +19,7 @@ function LoginPage() {
     if (isAuthenticated) {
       navigate("/");
     }
+    
   }, [isAuthenticated]);
 
   return (
