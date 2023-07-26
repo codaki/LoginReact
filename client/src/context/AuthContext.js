@@ -49,19 +49,12 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkLogin = async () => {
       const cookies = Cookies.get();
-      const cookies1 = Cookies.get('token');
-      console.log(cookies)
-      console.log(cookies.token)
-      console.log(cookies1)
       if (!cookies.token) {
         setIsAuthenticated(false);
-        console.log('HOla??2')
         setLoading(false);
-        console.log('HOla??3')
         return;
       }
       try {
-        console.log('antes de la comprobación')
         const res = await  verifyTokenRequest(cookies.token);
         console.log(res);
         if (!res.data) return setIsAuthenticated(false);
