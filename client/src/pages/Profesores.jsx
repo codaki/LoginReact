@@ -1,35 +1,60 @@
 import React, { useState } from 'react';
-import { FormControl, InputLabel, MenuItem, Select, Button, Typography } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, Button, Typography, Tooltip } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import '../styles/Profesores.css'; // Import the CSS file
-import { makeStyles } from '@mui/styles';
-
+import InfoIcon from '@mui/icons-material/Info'; // Import the Info icon from @mui/icons-material
+import SendIcon from '@mui/icons-material/Send';
 
 const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#1a237e', // Dark primary color
+      main: '#27662B', // Dark primary color
     },
     secondary: {
       main: '#d32f2f', // Dark secondary color
     },
     success: {
-      main: '#00bfa5', // Green color
+      main: '#27662B', // Green color
     },
   },
   typography: {
-    fontFamily: 'YourCoolFont, sans-serif', // Replace 'YourCoolFont' with your preferred cool font
+    fontFamily: 'Roboto, sans-serif', // Replace 'YourCoolFont' with your preferred cool font
   },
-});
 
-const useStyles = makeStyles((theme) => ({
-  inputLabel: {
-    fontSize: '18px', // Customize the font size
-    color: '#00bfa5', // Customize the label color
-    // Add any other custom styles you want here
+  components: {
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          fontSize: '1.2rem', // Customize the font size of the input label
+          color: 'white', // Customize the label color
+          // Add any other custom styles for the input label here
+        },
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        select: {
+          fontSize: '1rem', // Customize the font size of the select input
+          // Add any other custom styles for the select input here
+        },
+      },
+    },
+
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          fontSize: '1rem', // Customize the font size of the tooltip content
+          borderRadius: '8px', // Add a border radius for a rounded look (optional)
+          padding: '12px', // Add padding to the tooltip content (optional)
+          // Add any other custom styles for the tooltip here
+        },
+      },
+    },
   },
-}));
+
+
+});
 
 
 export function Profesores ()  {
@@ -49,55 +74,70 @@ export function Profesores ()  {
     setOption3(event.target.value);
   };
 
-  const classes = useStyles();
-
   return (
     <ThemeProvider theme={theme}>
       
       <div className="school-system-form-container">
 
       <div className="header">
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h3" gutterBottom>
             Informe de Necesidad Académica
           </Typography>
         </div>
 
         <div className="form-row">
           <FormControl fullWidth>
-            <InputLabel className={classes.inputLabel}>Option 1</InputLabel>
+            <InputLabel >Seleccionar postulación</InputLabel>
             <Select value={option1} onChange={handleOption1Change}>
-              <MenuItem value="option1_value1">Option 1 Value 1</MenuItem>
-              <MenuItem value="option1_value2">Option 1 Value 2</MenuItem>
-              <MenuItem value="option1_value3">Option 1 Value 3</MenuItem>
+              <MenuItem value="option1_value1">0232322</MenuItem>
+              <MenuItem value="option1_value2">283723</MenuItem>
+              <MenuItem value="option1_value3">02387</MenuItem>
             </Select>
           </FormControl>
+
+          <Tooltip title="Información de este campo" arrow>             
+            <InfoIcon fontSize="large" style={{ margin: '0.5rem' }} /> {/* Add InfoIcon */}
+          </Tooltip>
         </div>
 
         <div className="form-row">
           <FormControl fullWidth>
-            <InputLabel className={classes.inputLabel}>Option 2</InputLabel>
+            <InputLabel >Seleccionar tipo de contratación</InputLabel>
             <Select value={option2} onChange={handleOption2Change}>
-              <MenuItem value="option2_value1">Option 2 Value 1</MenuItem>
-              <MenuItem value="option2_value2">Option 2 Value 2</MenuItem>
-              <MenuItem value="option2_value3">Option 2 Value 3</MenuItem>
+              <MenuItem value="option2_value1">Personal académico que desarroll actividades de tercer nivel de grado y cuarto nivel</MenuItem>
+              <MenuItem value="option2_value2">Personal de apoyo académico(técnicos docentes, Ténicos de laboratorio y técnico de investigación).</MenuItem>
+              <MenuItem value="option2_value3">Personal académico para la formación técnica y tecnológica.</MenuItem>
             </Select>
           </FormControl>
+          <Tooltip title="Información de este campo" arrow>             
+            <InfoIcon fontSize="large" style={{ margin: '0.5rem' }} /> {/* Add InfoIcon */}
+          </Tooltip>
         </div>
 
         <div className="form-row">
           <FormControl fullWidth>
-            <InputLabel className={classes.inputLabel}>Option 3</InputLabel>
+            <InputLabel >Seleccionar tipo de personal académico</InputLabel>
             <Select value={option3} onChange={handleOption3Change}>
-              <MenuItem value="option3_value1">Option 3 Value 1</MenuItem>
-              <MenuItem value="option3_value2">Option 3 Value 2</MenuItem>
-              <MenuItem value="option3_value3">Option 3 Value 3</MenuItem>
+              <MenuItem value="option3_value1">Auxiliar nivel 1</MenuItem>
+              <MenuItem value="option3_value2">Agregado nivel 1</MenuItem>
+              <MenuItem value="option3_value3">Principal nivel 1</MenuItem>
+              <MenuItem value="option3_value4">Técnico docente nivel 1</MenuItem>
+              <MenuItem value="option3_value5">Técnico de laboratorio nivel 1</MenuItem>
+              <MenuItem value="option3_value5">Técnico de investigación nivel 1</MenuItem>
             </Select>
           </FormControl>
+          <Tooltip title="Información de este campo" arrow>             
+            <InfoIcon fontSize="large" style={{ margin: '0.5rem' }} /> {/* Add InfoIcon */}
+          </Tooltip>
         </div>
 
-        <Button variant="contained" color="success">
-          Send
+        <Button variant="contained" 
+          endIcon={<SendIcon />}  
+          sx={{ padding: "10px 60px", marginTop: "1.5rem"}}
+        >
+          Enviar
         </Button>
+
       </div>
     </ThemeProvider>
   );
