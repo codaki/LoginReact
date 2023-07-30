@@ -3,10 +3,9 @@ import ReCAPTCHA from 'react-google-recaptcha'; // Importa el componente de re
 import './styles.css'; // Importa el archivo de estilos
 
 const Registro = () => {
-  // Función que maneja la acción cuando se valida el captcha
+  
   const onCaptchaVerify = (response) => {
     console.log('Captcha verificado:', response);
-    // Aquí puedes agregar tu lógica para enviar el formulario o realizar otras acciones
   };
 
   return (
