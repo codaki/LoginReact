@@ -1,0 +1,126 @@
+/* Estilos para el popup */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .popup-content p {
+    margin-bottom: 10px;
+  }
+  
+  .popup-content button {
+    margin-top: 15px;
+    background-color: #000000;
+    position: relative;
+  }
+  
+  .popup-content button:hover {
+    background-color: #28a745;
+  }
+
+/* Estilos para la ventana emergente */
+.ventana-emergente {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.9); /* Color blanco con opacidad 0.9 (transparencia) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 30%;
+  height: 50%;
+  margin-left: 10px; /* Desplaza el contenedor hacia la derecha */
+  opacity: 0; /* Inicialmente la caja estará oculta */
+  animation: aparecer 0.5s ease forwards; /* Agregamos la animación de aparición */
+}
+
+/* Estilo para el título de la ventana emergente */
+.ventana-emergente h1 {
+  font-size: 20px;
+  margin: 5px 0;
+  padding-top: 3px;
+  padding-left: 10px;
+}
+
+/* Estilos para el contenido de la ventana emergente */
+.ventana-emergente p {
+  cursor: pointer;
+  margin: 5px 0;
+  padding: 10px;
+  padding-left: 10px;
+  color: #007BFF;
+}
+
+.ventana-emergente p:hover {
+  transition: 99ms;
+  background-color: #b8b7b7; /* Color verde más oscuro en hover */
+  border-radius: 5px;
+}
+
+/* Animación para la aparición de la caja */
+@keyframes aparecer {
+  to {
+    opacity: 1; /* Al final de la animación, la caja estará completamente visible */
+  }
+}
+
+/* Animación para el cierre de la caja */
+@keyframes cerrar {
+  to {
+    opacity: 0; /* Al final de la animación, la caja estará completamente oculta */
+    height: 0; /* La altura de la caja se reducirá a cero */
+    padding: 0; /* Eliminamos el padding para que la caja colapse limpiamente */
+  }
+}
+
+/* style.css */
+.welcome-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: fixed; /* Agregar posicionamiento fijo */
+  top: 0; /* Ajustar la posición vertical en la parte superior */
+  left: 0; /* Ajustar la posición horizontal en el borde izquierdo */
+  width: 100%; /* Asegurar que ocupe todo el ancho de la pantalla */
+  background-color: #ffffff; /* Puedes ajustar el color de fondo según tus necesidades */
+  z-index: 999; /* Ajustar el valor de z-index para asegurarte de que esté por encima de otros elementos */
+}
+
+.logo-container {
+  margin-right: 20px;
+}
+
+.logo-container img {
+  width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
+  height: auto; /* Para mantener la proporción de aspecto */
+}
+
+.text-container {
+  margin: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+  

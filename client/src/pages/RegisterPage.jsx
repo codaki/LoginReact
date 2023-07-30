@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+
 function RegisterPage() {
   const {
     register,
@@ -19,8 +20,6 @@ function RegisterPage() {
   useEffect(()=>{
     if(isAutheticated) {navigate("/");}
   },[isAutheticated]);
-
-
 
   return (
     <div className="bg-zinc-800 max-w-md p-10 rounded-md">
