@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import '../styles/Profesores.css'; // Import the CSS file
 import InfoIcon from '@mui/icons-material/Info'; // Import the Info icon from @mui/icons-material
 import SendIcon from '@mui/icons-material/Send';
+import PopUpProfesor from "../components/PopUpProfesor";
 
 const theme = createTheme({
   palette: {
@@ -74,6 +75,18 @@ export function Profesores ()  {
     setOption3(event.target.value);
   };
 
+    // State to control the visibility of the DynamicPopup
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const handleButtonClick = () => {
+      setIsPopupOpen(true);
+    };
+  
+    // Function to close the popup when the "X" button is clicked
+    const handlePopupClose = () => {
+      setIsPopupOpen(false);
+    };
+
   return (
     <ThemeProvider theme={theme}>
       
@@ -133,10 +146,20 @@ export function Profesores ()  {
 
         <Button variant="contained" 
           endIcon={<SendIcon />}  
-          sx={{ padding: "10px 60px", marginTop: "1.5rem"}}
+          sx={{ padding: "10px 80px", marginTop: "1.5rem"}}
+          onClick={handleButtonClick}
         >
           Enviar
         </Button>
+
+        {isPopupOpen && (
+          <PopUpProfesor
+            option1={option1}
+            option2={option2}
+            option3={option3}
+            onClose={handlePopupClose}
+          />
+        )}
 
       </div>
     </ThemeProvider>
