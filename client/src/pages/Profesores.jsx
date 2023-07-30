@@ -1,61 +1,60 @@
 import React, { useState } from 'react';
 import { FormControl, InputLabel, MenuItem, Select, Button, Typography, Tooltip } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import '../styles/Profesores.css'; // Import the CSS file
-import InfoIcon from '@mui/icons-material/Info'; // Import the Info icon from @mui/icons-material
-import SendIcon from '@mui/icons-material/Send';
+import {Info, Send} from '@mui/icons-material'; 
 import PopUpProfesor from "../components/PopUpProfesor";
 
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#27662B', // Dark primary color
-    },
-    secondary: {
-      main: '#d32f2f', // Dark secondary color
-    },
-    success: {
-      main: '#27662B', // Green color
-    },
-  },
-  typography: {
-    fontFamily: 'Roboto, sans-serif', // Replace 'YourCoolFont' with your preferred cool font
-  },
+// const theme = createTheme({
+//   palette: {
+//     mode: 'dark',
+//     primary: {
+//       main: '#27662B', // Dark primary color
+//     },
+//     secondary: {
+//       main: '#d32f2f', // Dark secondary color
+//     },
+//     success: {
+//       main: '#27662B', // Green color
+//     },
+//   },
 
-  components: {
-    MuiInputLabel: {
-      styleOverrides: {
-        root: {
-          fontSize: '1.2rem', // Customize the font size of the input label
-          color: 'white', // Customize the label color
-          // Add any other custom styles for the input label here
-        },
-      },
-    },
-    MuiSelect: {
-      styleOverrides: {
-        select: {
-          fontSize: '1rem', // Customize the font size of the select input
-          // Add any other custom styles for the select input here
-        },
-      },
-    },
+//   typography: {
+//     fontFamily: 'Roboto, sans-serif', // Replace 'YourCoolFont' with your preferred cool font
+//   },
 
-    MuiTooltip: {
-      styleOverrides: {
-        tooltip: {
-          fontSize: '1rem', // Customize the font size of the tooltip content
-          borderRadius: '8px', // Add a border radius for a rounded look (optional)
-          padding: '12px', // Add padding to the tooltip content (optional)
-          // Add any other custom styles for the tooltip here
-        },
-      },
-    },
-  },
+//   components: {
+//     MuiInputLabel: {
+//       styleOverrides: {
+//         root: {
+//           fontSize: '1.2rem', // Customize the font size of the input label
+//           color: 'white', // Customize the label color
+//           // Add any other custom styles for the input label here
+//         },
+//       },
+//     },
+//     MuiSelect: {
+//       styleOverrides: {
+//         select: {
+//           fontSize: '1rem', // Customize the font size of the select input
+//           // Add any other custom styles for the select input here
+//         },
+//       },
+//     },
+
+//     MuiTooltip: {
+//       styleOverrides: {
+//         tooltip: {
+//           fontSize: '1rem', // Customize the font size of the tooltip content
+//           borderRadius: '8px', // Add a border radius for a rounded look (optional)
+//           padding: '12px', // Add padding to the tooltip content (optional)
+//           // Add any other custom styles for the tooltip here
+//         },
+//       },
+//     },
+//   },
 
 
-});
+// });
 
 
 export function Profesores ()  {
@@ -88,7 +87,7 @@ export function Profesores ()  {
     };
 
   return (
-    <ThemeProvider theme={theme}>
+
       
       <div className="school-system-form-container">
 
@@ -109,7 +108,7 @@ export function Profesores ()  {
           </FormControl>
 
           <Tooltip title="Información de este campo" arrow>             
-            <InfoIcon fontSize="large" style={{ margin: '0.5rem' }} /> {/* Add InfoIcon */}
+            <Info fontSize="large" style={{ margin: '0.5rem' }} /> {/* Add InfoIcon */}
           </Tooltip>
         </div>
 
@@ -123,7 +122,7 @@ export function Profesores ()  {
             </Select>
           </FormControl>
           <Tooltip title="Información de este campo" arrow>             
-            <InfoIcon fontSize="large" style={{ margin: '0.5rem' }} /> {/* Add InfoIcon */}
+            <Info fontSize="large" style={{ margin: '0.5rem' }} /> {/* Add InfoIcon */}
           </Tooltip>
         </div>
 
@@ -140,12 +139,12 @@ export function Profesores ()  {
             </Select>
           </FormControl>
           <Tooltip title="Información de este campo" arrow>             
-            <InfoIcon fontSize="large" style={{ margin: '0.5rem' }} /> {/* Add InfoIcon */}
+            <Info fontSize="large" style={{ margin: '0.5rem' }} /> {/* Add InfoIcon */}
           </Tooltip>
         </div>
 
         <Button variant="contained" 
-          endIcon={<SendIcon />}  
+          endIcon={<Send />}  
           sx={{ padding: "10px 80px", marginTop: "1.5rem"}}
           onClick={handleButtonClick}
         >
@@ -162,7 +161,7 @@ export function Profesores ()  {
         )}
 
       </div>
-    </ThemeProvider>
+
   );
 };
 

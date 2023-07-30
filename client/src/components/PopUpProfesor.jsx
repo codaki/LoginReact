@@ -1,68 +1,66 @@
 import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogActions, Typography, Button, IconButton, TextField, Grid  } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import { makeStyles } from '@mui/styles';
+import { Dialog, DialogContent, DialogActions, Typography, Button, IconButton, TextField} from '@mui/material';
+import {Close} from '@mui/icons-material'; 
 
-const useStyles = makeStyles((theme) => ({
-  dialogContent: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: theme.spacing(4),
-    padding: theme.spacing(10),
-  },
+// const useStyles = makeStyles((theme) => ({
+//   dialogContent: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     gap: theme.spacing(4),
+//     padding: theme.spacing(10),
+//   },
 
-  closeButton: {
-    position: 'absolute',
-    top: theme.spacing(2),
-    right: theme.spacing(2),
-    color: '#555', // Custom color for the close button
-  },
+//   closeButton: {
+//     position: 'absolute',
+//     top: theme.spacing(2),
+//     right: theme.spacing(2),
+//     color: '#555', // Custom color for the close button
+//   },
 
-  nonClickableButton: {
-    borderRadius: '8px',
-    padding: '8px 16px',
-    marginRight: theme.spacing(6),
-    color: theme.palette.success.main,
-    border: `2px solid ${theme.palette.success.main}`,
-    fontWeight: 'bold', // Custom font weight for non-clickable buttons
-  },
+//   nonClickableButton: {
+//     borderRadius: '8px',
+//     padding: '8px 16px',
+//     marginRight: theme.spacing(6),
+//     color: theme.palette.success.main,
+//     border: `2px solid ${theme.palette.success.main}`,
+//     fontWeight: 'bold', // Custom font weight for non-clickable buttons
+//   },
 
-  clickableButton: {
-    borderRadius: '8px',
-    padding: '12px 24px',
-    fontWeight: 'bold',
-    fontSize: '18px',
-    margin: theme.spacing(2),
-    marginBottom: theme.spacing(4),
-    color: '#fff',
-    backgroundColor: theme.palette.primary.main,
-    // Custom hover effect for clickable buttons
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
-    },
-  },
+//   clickableButton: {
+//     borderRadius: '8px',
+//     padding: '12px 24px',
+//     fontWeight: 'bold',
+//     fontSize: '18px',
+//     margin: theme.spacing(2),
+//     marginBottom: theme.spacing(4),
+//     color: '#fff',
+//     backgroundColor: theme.palette.primary.main,
+//     // Custom hover effect for clickable buttons
+//     '&:hover': {
+//       backgroundColor: theme.palette.secondary.main,
+//     },
+//   },
   
-  textFieldHover: {
-    '&:hover': {
-      transform: 'scale(1.05)', // Make the TextField grow on hover
-    },
-  },
+//   textFieldHover: {
+//     '&:hover': {
+//       transform: 'scale(1.05)', // Make the TextField grow on hover
+//     },
+//   },
 
-  dialogPaper: {
-    width: '130rem', 
-    height: 'auto', // Set the height of the dialog container
-  },
+//   dialogPaper: {
+//     width: '130rem', 
+//     height: 'auto', // Set the height of the dialog container
+//   },
 
-  gridContainer: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gridGap: '10px',
-  },
+//   gridContainer: {
+//     display: 'grid',
+//     gridTemplateColumns: '1fr 1fr',
+//     gridGap: '10px',
+//   },
 
-}));
+// }));
 
 const PopUpProfesor = ({ option1, option2, option3, onClose }) => {
-  const classes = useStyles();
 
   // State for dynamic information in the text fields
   const [dynamicValue1, setDynamicValue1] = useState('A');
@@ -80,68 +78,68 @@ const PopUpProfesor = ({ option1, option2, option3, onClose }) => {
   // ... Other logic for the clickable buttons ...
 
   return (
-    <Dialog open={true} maxWidth="md" fullWidth classes={{ paper: classes.dialogPaper }}>
-      <IconButton className={classes.closeButton} onClick={onClose}>
-        <CloseIcon />
+    <Dialog open={true} maxWidth="md" fullWidth>
+      <IconButton  onClick={onClose}>
+        <Close />
       </IconButton>
-      <DialogContent className={classes.dialogContent}>
+      <DialogContent >
       <Typography variant="h5">Detalle informativo</Typography>
 
 
-      <div className={classes.gridContainer}>
+      <div >
       <TextField label="Vacantes"
         value={dynamicValue2} disabled 
-        className={classes.textFieldHover} 
+        
         style={{ fontSize: '2rem' }}
       />
 
       <TextField label="Vacantes"
               value={dynamicValue2} disabled 
-              className={classes.textFieldHover} 
+              
               style={{ fontSize: '2rem' }}
       />
 
       <TextField label="Vacantes"
                     value={dynamicValue2} disabled 
-                    className={classes.textFieldHover} 
+                    
                     style={{ fontSize: '2rem' }}
             />
 
       <TextField label="Vacantes"
                     value={dynamicValue2} disabled 
-                    className={classes.textFieldHover} 
+                    
                     style={{ fontSize: '2rem' }}
             />
 
       <TextField label="Vacantes"
                     value={dynamicValue2} disabled 
-                    className={classes.textFieldHover} 
+                    
                     style={{ fontSize: '2rem' }}
             />
 
       <TextField label="Vacantes"
                     value={dynamicValue2} disabled 
-                    className={classes.textFieldHover} 
+                    
                     style={{ fontSize: '2rem' }}
             />
 
       <TextField label="Vacantes"
                     value={dynamicValue2} disabled 
-                    className={classes.textFieldHover} 
+                   
                     style={{ fontSize: '2rem' }}
             />
       </div>
 
 
         <div>
-          <Button className={classes.nonClickableButton}>Non-Clickable 1</Button>
-          <Button className={classes.nonClickableButton}>Non-Clickable 2</Button>
-          <Button className={classes.nonClickableButton}>Non-Clickable 3</Button>
+          <Button >Non-Clickable 1</Button>
+          <Button >Non-Clickable 2</Button>
+          <Button >Non-Clickable 3</Button>
         </div>
       </DialogContent>
       <DialogActions>
-        <Button className={classes.clickableButton}>Continue</Button>
-        <Button className={classes.clickableButton}>Retry</Button>
+        <Button >Continue</Button>
+        <Button >Retry</Button>
       </DialogActions>
     </Dialog>
   );
