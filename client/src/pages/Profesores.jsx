@@ -3,58 +3,9 @@ import { FormControl, InputLabel, MenuItem, Select, Button, Typography, Tooltip 
 import '../styles/Profesores.css'; // Import the CSS file
 import {Info, Send} from '@mui/icons-material'; 
 import PopUpProfesor from "../components/PopUpProfesor";
+import { styled } from '@mui/material/styles';
 
-// const theme = createTheme({
-//   palette: {
-//     mode: 'dark',
-//     primary: {
-//       main: '#27662B', // Dark primary color
-//     },
-//     secondary: {
-//       main: '#d32f2f', // Dark secondary color
-//     },
-//     success: {
-//       main: '#27662B', // Green color
-//     },
-//   },
-
-//   typography: {
-//     fontFamily: 'Roboto, sans-serif', // Replace 'YourCoolFont' with your preferred cool font
-//   },
-
-//   components: {
-//     MuiInputLabel: {
-//       styleOverrides: {
-//         root: {
-//           fontSize: '1.2rem', // Customize the font size of the input label
-//           color: 'white', // Customize the label color
-//           // Add any other custom styles for the input label here
-//         },
-//       },
-//     },
-//     MuiSelect: {
-//       styleOverrides: {
-//         select: {
-//           fontSize: '1rem', // Customize the font size of the select input
-//           // Add any other custom styles for the select input here
-//         },
-//       },
-//     },
-
-//     MuiTooltip: {
-//       styleOverrides: {
-//         tooltip: {
-//           fontSize: '1rem', // Customize the font size of the tooltip content
-//           borderRadius: '8px', // Add a border radius for a rounded look (optional)
-//           padding: '12px', // Add padding to the tooltip content (optional)
-//           // Add any other custom styles for the tooltip here
-//         },
-//       },
-//     },
-//   },
-
-
-// });
+// Create custom styled components using the `styled` function
 
 
 export function Profesores ()  {
@@ -99,7 +50,7 @@ export function Profesores ()  {
 
         <div className="form-row">
           <FormControl fullWidth>
-            <InputLabel >Seleccionar postulación</InputLabel>
+            <InputLabel>Seleccionar postulación</InputLabel>
             <Select value={option1} onChange={handleOption1Change}>
               <MenuItem value="option1_value1">0232322</MenuItem>
               <MenuItem value="option1_value2">283723</MenuItem>
@@ -114,7 +65,9 @@ export function Profesores ()  {
 
         <div className="form-row">
           <FormControl fullWidth>
-            <InputLabel >Seleccionar tipo de contratación</InputLabel>
+            <InputLabel sx={{fontSize: '1.2rem', 
+           color: 'white',
+            }}>Seleccionar tipo de contratación</InputLabel>
             <Select value={option2} onChange={handleOption2Change}>
               <MenuItem value="option2_value1">Personal académico que desarroll actividades de tercer nivel de grado y cuarto nivel</MenuItem>
               <MenuItem value="option2_value2">Personal de apoyo académico(técnicos docentes, Ténicos de laboratorio y técnico de investigación).</MenuItem>
@@ -128,7 +81,9 @@ export function Profesores ()  {
 
         <div className="form-row">
           <FormControl fullWidth>
-            <InputLabel >Seleccionar tipo de personal académico</InputLabel>
+            <InputLabel sx={{fontSize: '1.2rem', 
+           color: 'white',
+            }}>Seleccionar tipo de personal académico</InputLabel>
             <Select value={option3} onChange={handleOption3Change}>
               <MenuItem value="option3_value1">Auxiliar nivel 1</MenuItem>
               <MenuItem value="option3_value2">Agregado nivel 1</MenuItem>
