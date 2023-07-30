@@ -12,5 +12,5 @@ db.connect((err) => {
   console.log("Conexión exitosa a la base de datos!");
 });
 //Conexión a un puerto para el servidor
-app.listen(8800);
-console.log("Servidor en el puerto ", 8800);
+app.listen(8880);
+console.log("Servidor en el puerto ", 8880);

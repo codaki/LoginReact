@@ -33,6 +33,7 @@ export const login = (req, res) => {
     if (data.length === 0)
       return res.status(404).json(["Usuario no registrado!"]);
     //Comparación de contraseña
+    console.log(data[0].usu_password)
     const isPasswordCorrect = bcrypt.compareSync(
       req.body.password,
       //Nombre del atributo como está en la base
