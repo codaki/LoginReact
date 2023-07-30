@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import './styles.css'; // Importa el archivo de estilos
+import './styles.css';
 import Popup from '../components/Popup.jsx';
 
 const Login = () => {
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleLogin = () => {
-    // Aquí puedes agregar la lógica para el inicio de sesión
-    setShowPopup(true);
+  const handleLogin = () =>{
+      setShowPopup(true);
   };
 
   const handleClosePopup = () => {
@@ -31,7 +30,7 @@ const Login = () => {
       {showPopup && (
         <Popup
           mensaje="Tu información será manipulada conforme a la necesidad de la institución sin lugar a reclamos, conforme a la ley de protección de datos, etc."
-          ruta="/plataforma" // Aquí pasa la ruta que desees redireccionar desde el componente Login
+          ruta="/plataforma" 
           onClose={handleClosePopup}
         />
       )}

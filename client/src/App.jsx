@@ -12,7 +12,6 @@ import Registro from './pages/Registro';
 import Login from './pages/Login';
 import Formulario from './pages/Formulario';
 import Plataforma from './pages/Plataforma';
-import Informacion from './pages/Informacion';
 import Postulante from './pages/Postulante';
 import Proceso from './pages/Proceso';
 
@@ -28,12 +27,12 @@ function App() {
           <Route path="/profe" element={<Profesores />} />
           <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<ProfilePage />} />
-
+          {/* Nuevas Rutas */}
+          <Route path="/" element={<Inicio />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/login2" element={<Login />} />
           <Route path="/formulario" element={<Formulario />} />
           <Route path="/plataforma" element={<Plataforma />} />
-          <Route path="/informacion" element={<Informacion />} />
           <Route path="/postulante" element={<Postulante />} />
           <Route path="/proceso" element={<Proceso />} />
           </Route>

@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.css';
 
 const Formulario = () => {
+
   return (
     <div className="form-container">
       <div className="form-box">
@@ -43,8 +44,8 @@ const Formulario = () => {
         <label>Email</label>
         <input type="text" placeholder="dsaavedra@gmail.com" />
 
-        <label>Contraseña</label>
-        <input type="password" />
+        <label>Fecha de Nacimiento</label>
+        <input type="date" />
 
         <p>Utilizar solo cuentas de gmail, hotmail, outlook.</p>
         <button type="submit" onClick={() => window.location.href = '/login'}>ENVIAR</button>

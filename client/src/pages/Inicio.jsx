@@ -11,7 +11,6 @@ const Inicio = () => {
         <button onClick={() => window.location.href = '/login'}>Comenzar</button>
       </div>
       <div>
-      {/* Otro contenido de tu página */}
       <VentanaInformacion />
     </div>
     </div>
